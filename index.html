@@ -1,0 +1,1359 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Certificaciones SAI</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f0f4f7;
+      color: #333;
+      line-height: 1.6;
+    }
+
+header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 150px;
+  background: transparent;          
+  z-index: 999;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+  position: fixed;
+  isolation: isolate;              
+}
+
+
+header::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, #00b894, #147ecb);
+  opacity: 0;                       
+  transition: opacity 0.4s ease;     
+  pointer-events: none;
+  z-index: 0;
+}
+
+
+header > * {
+  position: relative;
+  z-index: 1;
+}
+
+
+header.scrolled::before {
+  opacity: 1;
+}
+
+
+
+ .logo-container {
+  display: flex;
+  align-items: center;
+}
+
+.logo-container img {
+  height: 40px;
+  margin-right: 10px;
+}
+
+
+    .logo-container h1 {
+      font-size: 1.8em;
+    }
+
+    nav {
+  display: flex;
+  justify-content: center;
+  flex: 1;
+  gap: 210px;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  font-weight: 900;
+  position: relative; 
+  padding-right: 30px; 
+  font-size: 2em; 
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.6);
+}
+
+
+
+
+nav a::after {
+  content: "▼";
+  position: absolute;
+  right: 0;
+  top: 5px;
+  font-size: 0.7em;
+}
+
+
+
+.flecha {
+  font-size: 0.6em;
+}
+
+    .spacer {
+      height: 100px;
+    }
+
+    .descubre-content {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 120px 40px;
+      background-color: #f7f4ef;
+      gap: 60px;
+      flex-wrap: wrap;
+    }
+
+    .texto-descubre {
+      max-width: 500px;
+      text-align: left;
+    }
+
+    .texto-descubre h2 {
+      font-size: 3.8em;
+      color: #0f68b5;
+      margin-top: -90px;   
+      margin-bottom: 30px;
+      font-weight: bold;   
+  }
+
+    .texto-descubre p {
+      font-size: 1.8em;
+      margin-bottom: 30px;
+      color: #555;
+      line-height: 1.6;
+    }
+
+    .texto-descubre a {
+      padding: 16px 24px;
+      background-color: #147ecb;
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      border-radius: 8px;
+      font-size: 1.1em;
+      display: inline-block;
+      transition: background-color 0.3s ease;
+    }
+
+    .texto-descubre a:hover {
+      background-color: #106dae;
+    }
+
+    .imagenes-pildoras {
+      display: flex;
+      flex-direction: row;
+      gap: 20px;
+    }
+
+    .imagenes-pildoras img {
+      border-radius: 50px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      object-fit: cover;
+    }
+
+    .imagenes-pildoras img:nth-child(1),
+    .imagenes-pildoras img:nth-child(3) {
+      width: 180px;
+      height: 220px;
+    }
+
+    .imagenes-pildoras img:nth-child(2) {
+      width: 220px;
+      height: 270px;
+    }
+
+    .acreditacion {
+      background-color: #ffffff;
+      padding: 60px 20px;
+      text-align: center;
+    }
+
+    .acreditacion h2 {
+      font-size: 1.8em;
+      color: #2e7d32;
+      margin-bottom: 15px;
+    }
+
+    .acreditacion p {
+      font-size: 1.1em;
+      color: #555;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .servicios {
+      background-color: #f9f9f9;
+      padding: 60px 20px;
+      text-align: center;
+    }
+
+    .tarjetas {
+      display: flex;
+      gap: 30px;
+      max-width: 1200px;
+      margin: auto;
+      flex-wrap: nowrap;
+      overflow-x: auto;
+    }
+
+    .tarjeta {
+      background: white;
+      padding: 20px;
+      border-left: 5px solid #66bb6a;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+      text-align: left;
+      min-width: 250px;
+      flex: 1;
+    }
+
+    .tarjeta h3 {
+      margin-bottom: 10px;
+      color: #2e7d32;
+    }
+
+    .tarjeta p {
+      margin-bottom: 15px;
+    }
+
+    .tarjeta a {
+      color: #2e7d32;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .documentos {
+      background-color: #fff;
+      padding: 60px 20px;
+      text-align: center;
+    }
+
+    .documentos h2 {
+      color: #2e7d32;
+      margin-bottom: 20px;
+    }
+
+    .documentos ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .documentos li {
+      margin: 10px 0;
+    }
+
+    .documentos a {
+      color: #2e7d32;
+      text-decoration: underline;
+    }
+
+      .seccion-contacto {
+    background-color: #eaf6fd ; 
+    padding: 40px 20px;
+    font-family: Arial, sans-serif;
+  }
+
+ .contenedor-contacto {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 40px;
+  padding: 20px;
+  border-radius: 10px;
+  flex-wrap: wrap;
+  min-height: 500px; 
+  position: relative; 
+}
+
+
+  .columna-contacto {
+    flex: 1 1 400px;
+    padding: 20px;
+    background-color: #ffffffb9;
+    border-radius: 8px;
+    box-shadow: 0 0 10px #00000010;
+  }
+
+  .columna-contacto h3 {
+    font-size: 22px;
+    margin-bottom: 10px;
+    font-weight: bold;
+    color: #14532d;
+  }
+
+  .columna-contacto p {
+    margin: 10px 0;
+    font-size: 15px;
+  }
+
+  .columna-contacto strong {
+    font-weight: bold;
+  }
+
+  iframe {
+    width: 150%;
+    height: 300px;
+    border: none;
+  }
+
+  @media (max-width: 768px) {
+    .contenedor-contacto {
+      flex-direction: column;
+    }
+  }
+
+    form {
+      max-width: 500px;
+      margin: auto;
+      text-align: left;
+    }
+
+    input, textarea {
+      width: 100%;
+      padding: 12px;
+      margin-bottom: 15px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+    }
+
+    label {
+      font-weight: bold;
+    }
+
+    .checkbox {
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      gap: 10px;
+      font-size: 0.9em;
+      margin-bottom: 20px;
+    }
+
+    .checkbox input[type="checkbox"] {
+      width: auto;
+      margin: 0;
+    }
+
+    .btn-submit {
+      background-color: #1565C0;
+      color: white;
+      padding: 12px 25px;
+      border: none;
+      border-radius: 6px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    footer {
+      background: #eeeeee;
+      text-align: center;
+      padding: 20px;
+      font-size: 0.9em;
+      color: #666;
+    }
+
+    .modal {
+  display: none; 
+  position: fixed;
+  z-index: 1000;
+  left: 0; top: 0;
+  width: 100%; height: 100%;
+  background-color: rgba(0,0,0,0.6);
+  justify-content: center;
+  align-items: center;
+  animation: fadeBackdrop 0.3s ease-in-out;
+}
+
+.modal-content {
+  background-color: #fff;
+  padding: 30px;
+  border-radius: 8px;
+  width: 80%;
+  max-width: 600px;
+  position: relative;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+.close {
+  position: absolute;
+  right: 15px;
+  top: 10px;
+  font-size: 24px;
+  font-weight: bold;
+  color: #333;
+  cursor: pointer;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes fadeBackdrop {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.modal-content p {
+  margin-bottom: 1em;
+}
+
+nav a:focus {
+  outline: none;
+}
+
+nav a::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -5px;
+  width: 0%;
+  height: 2px;
+  background-color: #ffffff;
+  transition: width 0.3s ease;
+}
+
+nav a:hover::before,
+nav a:focus::before {
+  width: 100%;
+}
+
+.modal-title {
+  font-size: 28px;
+  font-weight: 800;
+  margin-bottom: 16px;
+  font-family: 'Poppins', sans-serif;
+}
+
+.modal-text {
+  font-size: 16px;
+  line-height: 1.6;
+  margin-bottom: 12px;
+  font-family: 'Poppins', sans-serif;
+}
+
+.modal-image {
+  width: 100%;
+  max-width: 100%;
+  border-radius: 12px;
+  margin-top: 16px;
+}
+
+.green {
+  color: #147ecb;
+  font-weight: bold;
+}
+
+.hero {
+  position: relative;
+  height: 100vh;
+  background-image: url('hero-background.jpg'); 
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: white;
+  padding: 0 20px;
+}
+
+.hero-texto {
+  background: rgba(0, 0, 0, 0.6); 
+  padding: 40px;
+  border-radius: 10px;
+}
+
+.hero-texto h1 {
+  font-size: 3.5em;
+  font-weight: 800;
+  margin-bottom: 20px;
+  font-family: 'Poppins', sans-serif;
+}
+
+.hero-texto p {
+  font-size: 1.5em;
+  font-family: 'Poppins', sans-serif;
+}
+
+.descubre {
+  padding: 3rem 1rem;
+  background-color: #f8f8f8;
+}
+
+.descubre-contenido {
+  max-width: 700px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center; 
+  gap: 2rem;
+  text-align: center;
+}
+
+
+.descubre-texto {
+  flex: 1 1 400px;
+  text-align: center;
+}
+
+.descubre-texto h2 {
+  font-size: 1.8rem; 
+  margin-bottom: 1rem;
+}
+
+.descubre-texto p {
+  font-size: 0.95rem; 
+  margin-bottom: 1.2rem;
+}
+
+.conocenos-btn {
+  font-size: 0.95rem;
+  padding: 0.6rem 1.2rem;
+}
+
+
+.conocenos-btn:hover {
+  background-color: #218838;
+}
+
+.descubre-slider {
+  width: 100%;        
+  max-width: 800px;  
+  margin: 10 auto;    
+}
+
+
+.slider {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  border-radius: 1rem;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  margin-left: 70px;  
+
+}
+
+.slide {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+}
+
+.slide.active {
+  opacity: 1;
+}
+
+.accesos {
+  padding: 60px 20px;
+  background: #fff;
+  text-align: center;
+}
+
+.accesos h2 {
+  font-size: 2.8rem;
+  text-align: center;
+  color: #1a1a1a;
+  font-weight: 600;
+  position: relative;
+  display: inline-block;
+  margin: 0 auto 2rem;
+  padding-bottom: 0.5rem;
+}
+
+.accesos h2::after {
+  content: "";
+  display: block;
+  width: 60px;
+  height: 4px;
+  background: linear-gradient(90deg, #147ecb, #147ecb);
+  margin: 8px auto 0;
+  border-radius: 2px;
+  transition: width 0.3s ease;
+}
+
+.accesos h2:hover::after {
+  width: 90px;
+}
+
+
+.accesos-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 40px;
+}
+
+.acceso-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 120px;
+  text-decoration: none;
+  color: #333;
+  transition: transform 0.3s ease;
+  position: relative;
+}
+
+.acceso-item img {
+  width: 60px;
+  height: 60px;
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.acceso-item span {
+  margin-top: 10px;
+  font-size: 1em;
+  text-align: center;
+}
+
+.acceso-item:hover {
+  transform: translateY(-8px);
+}
+
+.acceso-item:hover img {
+  transform: translateY(-12px) scale(1.1);
+  filter: drop-shadow(0 0 5px #0059ff);
+}
+
+.documentos {
+  padding: 60px 20px;
+  background-color: #f9f9f9;
+  text-align: center;
+}
+
+.documentos h2 {
+  font-size: 2.2rem;
+  margin-bottom: 40px;
+  color: #1a1a1a;
+  position: relative;
+}
+
+.documentos-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.documento {
+  background: #fff;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  transition: transform 0.2s ease, box-shadow 0.3s ease;
+}
+
+.documento:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+}
+
+.documento img {
+  width: 50px;
+  margin-bottom: 15px;
+}
+
+.documento h3 {
+  font-size: 1.1rem;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.documento p {
+  font-size: 0.95rem;
+  color: #555;
+  margin-bottom: 20px;
+}
+
+.documento a {
+  background-color: #147ecb;
+  color: white;
+  padding: 10px 20px;
+  text-decoration: none;
+  border-radius: 25px;
+  font-weight: bold;
+  display: inline-block;
+  transition: background-color 0.3s ease;
+}
+
+.documento a:hover {
+  background-color: #0f6aad;
+}
+
+
+
+<style>
+
+  .slider {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+    border-radius: 1rem;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  }
+
+  .slide {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+  }
+
+  .slide.active {
+    opacity: 1;
+  }
+
+.descripcion-servicio {
+  display: none;
+  margin-top: 12px;
+  font-size: 19px;
+  line-height: 1.8;
+  color: #1f2937; 
+  background-color: #d8ebf9; 
+  padding: 16px 20px;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  transition: all 0.3s ease;
+  font-style: italic;
+}
+
+<style>
+  .subtitulo-azul {
+    position: relative;
+    display: inline-block;
+    font-size: 2rem;
+    font-weight: bold;
+    text-align: center;
+  }
+
+  .subtitulo-azul::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: -8px;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 4px;
+    background-color: #147ecb;
+    transition: width 0.3s ease;
+    border-radius: 2px;
+  }
+
+  .subtitulo-azul:hover::after {
+    width: 100px;
+  }
+
+  .modal-content {
+  padding: 30px;
+  font-family: 'Poppins', sans-serif;
+  line-height: 1.7;
+  font-size: 1rem;
+  color: #333;
+}
+
+.sector-empresa {
+  text-align: center;
+  margin: 50px auto;
+  margin-top: 10px;
+  padding: 20px 30px;
+  background: linear-gradient(90deg, #00b894, #147ecb);
+  border-radius: 12px;
+  color: white;
+  max-width: 500px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.sector-empresa h3 {
+  font-size: 1.8rem;
+  font-weight: bold;
+  margin-bottom: 8px;
+}
+
+.sector-empresa p {
+  font-size: 1.3rem;
+  font-weight: 500;
+  font-style: italic;
+}
+
+.formulario-container {
+  max-width: 650px;
+  margin: 1px;
+  padding: 20px;
+  border: 3px solid transparent;
+  border-radius: 50px;
+  background: 
+    linear-gradient(#fff, #fff) padding-box,
+    linear-gradient(90deg, #00b894, #147ecb) border-box;
+}
+
+
+.formulario-iframe {
+  width: 100%;      
+  height: 550px;    
+  border: none;     
+}
+
+.modal-list {
+  list-style: none;
+  padding-left: 30px;  
+  margin-top: 10px;
+}
+
+.modal-list li {
+  position: relative;
+  margin-bottom: 12px;
+  padding-left: 32px;   
+  font-size: 1rem;
+}
+
+.modal-list li::before {
+  content: "✔";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 20px;
+  height: 20px;
+  background: #00b894;    
+  color: white;
+  font-size: 0.8rem;
+  font-weight: bold;
+  line-height: 20px;
+  text-align: center;
+  border-radius: 50%;    
+}
+
+.final-text {
+  position: relative;
+  padding-left: 38px;   
+  margin-top: 20px;
+  font-style: italic;   
+}
+
+.final-text::before {
+  content: "✔";               
+  position: absolute;
+  left: 0;
+  top: 2px;
+  width: 24px;
+  height: 24px;
+  background: #147ecb;         
+  color: white;
+  font-size: 0.9rem;
+  font-weight: bold;
+  line-height: 24px;
+  text-align: center;
+  border-radius: 50%;           
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2); 
+}
+
+.modal-title,
+.modal-subtitle {
+  margin-bottom: 8px; 
+}
+
+.modal-text {
+  margin-top: 0;      
+}
+
+.modal-subtitle {
+  margin-top: 20px;
+  margin-bottom: 8px;   
+  font-size: 1.2rem;
+  color: #147ecb;      
+  font-weight: bold;
+}
+
+.modal-list {
+  list-style: none;
+  padding-left: 30px;
+  margin-top: 10px;
+}
+
+.modal-list li {
+  position: relative;
+  margin-bottom: 12px;
+  padding-left: 32px;
+  font-size: 1rem;
+}
+
+.modal-list li::before {
+  content: "✔";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 22px;
+  height: 22px;
+  background: #00b894;  
+  color: white;
+  font-size: 0.9rem;
+  font-weight: bold;
+  line-height: 22px;
+  text-align: center;
+  border-radius: 50%;
+}
+
+.final-text {
+  position: relative;
+  padding-left: 38px;
+  margin-top: 20px;
+  font-style: italic;
+}
+
+.final-text::before {
+  content: "✔";
+  position: absolute;
+  left: 0;
+  top: 2px;
+  width: 24px;
+  height: 24px;
+  background: #147ecb;   
+  color: white;
+  font-size: 0.9rem;
+  font-weight: bold;
+  line-height: 24px;
+  text-align: center;
+  border-radius: 50%;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+.modal-text {
+  margin-top: 0;       
+  line-height: 1.5;    
+}
+
+@media (max-width: 768px) {
+  .contenedor-contacto {
+    flex-direction: column; 
+    gap: 20px; 
+  }
+
+  .seccion-contacto img {
+    width: 100%; 
+    height: auto; 
+  }
+
+  .documento {
+    margin: 10px 0;
+  }
+
+  .accesos-grid {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .acceso-item {
+    width: 100%; 
+  }
+
+  .imagenes-pildoras img {
+    width: 100%;
+    height: auto;
+  }
+}
+
+@media (max-width: 768px) {
+  body {
+    font-size: 16px; 
+  }
+
+  .texto-descubre h2 {
+    font-size: 2em; 
+  }
+
+  .texto-descubre p {
+    font-size: 1.2em; 
+  }
+}
+
+@media (max-width: 768px) {
+  .seccion-contacto img {
+    width: 100%;
+    max-width: none; 
+    height: auto; 
+  }
+
+  .contenedor-contacto {
+    flex-direction: column; 
+    gap: 20px; 
+  }
+
+  .accesos-grid, .documentos-grid {
+    flex-direction: column; 
+    gap: 20px; 
+  }
+
+  .documento {
+    width: 100%; 
+  }
+
+  .texto-descubre h2 {
+    font-size: 2.5em; 
+  }
+
+  .texto-descubre p {
+    font-size: 1.4em; 
+  }
+}
+
+@media (max-width: 768px) {
+  form {
+    width: 100%; 
+    padding: 10px;
+  }
+
+  input, textarea {
+    width: 100%;
+    padding: 12px;
+  }
+
+  .btn-submit {
+    width: 100%; 
+  }
+}
+
+
+
+</style>
+
+
+</style>
+
+</style>
+
+
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="logo-container">
+<img src="logo.png" alt="Logo de SAI Ingeniería" class="logo" style="height: 130px;">
+  </div>
+ <nav class="header-nav">
+  <a href="#" onclick="openModal('modal-mision'); return false;">Misión</a>
+  <a href="#" onclick="openModal('modal-vision'); return false;">Visión</a>
+  <a href="#" onclick="openModal('modal-trabajo'); return false;">Nuestro trabajo</a>
+<a href="#" onclick="openModal('modal-opiniones'); return false;">Tipo de trabajo</a>
+</nav>
+</header>
+<section class="hero">
+  <div class="hero-texto">
+<h1>
+  Confiables, precisos y <br>
+  comprometidos con tu seguridad
+</h1>
+  </div>
+</section>
+
+<div style="height: 80px;"></div>
+
+ <section class="descubre-content">
+  <div class="texto-descubre">
+    <h2>¿Quiénes somos?</h2>
+    <p class="descubre-text">
+      Certificaciones SAI es un Organismo de Inspección de tercera parte, acreditado y comprometido con la 
+      <strong class="green">seguridad</strong>, la <strong class="green">calidad</strong> y el 
+      <strong class="green">cumplimiento normativo</strong> en instalaciones de gas GLP. 
+      Nuestra misión es brindar confianza a los usuarios y al sector mediante inspecciones técnicas 
+      <strong class="green">objetivas</strong>, <strong class="green">imparciales</strong> y 
+      basadas en estándares nacionales vigentes.
+    </p>
+    <a href="#" onclick="openModal('modal-conocenos'); return false;">CONÓCENOS</a>
+  </div>
+
+  <div class="descubre-slider">
+    <div class="slider">
+      <img src="Slide1.jpg" class="slide active">
+      <img src="Slide2.jpg" class="slide">
+      <img src="Slide3.jpg" class="slide">
+    </div>
+  </div>
+</section>
+
+
+
+
+  </section>
+<section class="accesos">
+  <h2>Nuestros servicios</h2>
+  <div class="sector-empresa">
+    <h3>Sector de la empresa</h3>
+    <p>San Andrés Islas</p>
+  </div>
+
+  <div class="accesos-grid">
+
+  <a href="javascript:void(0)" class="acceso-item">
+    <img src="InspeccionGas.svg" alt="Inspección técnica de gas">
+    <span>Inspección técnica de gas</span>
+  </a>
+
+  <a href="javascript:void(0)" class="acceso-item">
+    <img src="Certificacion.svg" alt="Certificaciones de instalación residencial y comercial de gas LP">
+    <span>Certificaciones de instalación residencial y comercial de gas LP</span>
+  </a>
+
+  <a href="javascript:void(0)" class="acceso-item">
+    <img src="Auditoria.svg" alt="Personal calificado">
+    <span>Personal calificado</span>
+  </a>
+
+</div>
+
+
+
+  </div>
+</section>
+
+
+
+<section class="documentos">
+<h2 class="subtitulo-azul">Documentación Legal y Técnica</h2>
+  <div class="documentos-grid">
+   <div class="documento">
+  <img src="icon-pdf.svg" alt="Documento PDF">
+  <h3>Resolución 059 de 2012</h3>
+  <p>
+    Regula las <strong>revisiones periódicas de instalaciones internas de gas</strong>, 
+    estableciendo un plazo máximo de <strong>5 años</strong> y la obligación de realizarlas con 
+    <strong>organismos de inspección acreditados</strong>. 
+ </p>
+  <a href="resolucion-059-2012.pdf" target="_blank">Ver documento</a>
+</div>
+
+
+<div class="documento">
+  <img src="icon-pdf.svg" alt="Documento PDF">
+  <h3>Resolución 90902 de 2013</h3>
+  <p>
+    Establece el <strong>Reglamento Técnico para las Instalaciones Internas de Gas Combustible</strong> 
+    en edificaciones residenciales, comerciales e industriales. Regula el <em>diseño</em>, 
+    la <em>construcción</em>, las <em>revisiones periódicas</em> y la <em>certificación final</em> 
+    por organismos acreditados, garantizando la <strong>seguridad y la calidad del servicio</strong>.
+  </p>
+  <a href="Resolucion90902-2013.pdf" target="_blank">Ver documento</a>
+</div>
+
+
+  </div>
+</section>
+
+<section class="seccion-contacto">
+  <h2 style="text-align: center; font-size: 32px; font-weight: bold; color: #1E88E5; margin-bottom: 30px;">
+    ¿Necesitas comunicarte con nosotros? ¡Estamos para ayudarte!
+  </h2>
+
+  <div class="contenedor-contacto" style="display: flex; justify-content: center; align-items: flex-start; gap: 40px;">
+    
+<div style="flex: 1; max-width: 60%; text-align: left;">
+  <img src="tarjeta-canales.png" alt="Canales de Atención" style="width: 102%; height: auto; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+</div>
+
+
+    <div style="width: 2px; background-color: #ccc; min-height: 300px; align-self: stretch; box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);"></div>
+
+    <div style="flex: 1; max-width: 45%; text-align: left;">
+      <div style="margin-bottom: 20px;">
+        <h3 style="font-weight: bold; font-size: 28px;">🛈 Déjanos tus datos y nos pondremos en contacto contigo</h3>
+        <p style="font-size: 18px;">Si deseas solicitar un servicio o inspección, por favor deja tu mensaje en el formulario.</p>
+        <p style="font-size: 18px; margin-top: 10px;">En caso de <strong>PQR o apelaciones</strong>, también puedes comunicarte directamente por:</p>
+        <p style="font-size: 18px;"><strong>Correo:</strong> Pqrcertificacionessaisas@gmail.com</p>
+        <p style="font-size: 18px;"><strong>Línea de atención:</strong> (311) 234-9611</p>
+      </div>
+
+      <div class="formulario-container">
+        <iframe class="formulario-iframe"
+          src="https://forms.gle/5citczW9tzDT6xfc9"
+          frameborder="0" marginheight="0" marginwidth="0">
+        </iframe>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+  <footer>
+    © 2025 Certificaciones SAI - Todos los derechos reservados.
+  </footer>
+
+<div id="modal-mision" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="closeModal('modal-mision')">&times;</span>
+    <h2 style="font-size: 1.8em; font-weight: 800; margin-bottom: 15px;">Nuestra Misión</h2>
+    <p>
+      Velar por la <strong class="green">seguridad</strong>, la <strong class="green">eficiencia</strong> y el <strong class="green">cumplimiento normativo</strong> en las instalaciones y sistemas de <strong class="green">Gas Licuado de Petróleo (GLP)</strong> en San Andrés, mediante inspecciones <strong class="green">imparciales</strong>, <strong class="green">profesionales</strong> y <strong class="green">técnicamente competentes</strong> que contribuyan al <strong class="green">bienestar</strong> de la comunidad y la <strong class="green">preservación del entorno natural</strong> de la isla.
+    </p>
+    <img src="mision.jpg" alt="Trabajadores de SAI Ingeniería" style="margin-top: 25px; max-width: 100%; border-radius: 10px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);" />
+  </div>
+</div>
+
+
+
+
+<div id="modal-vision" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="closeModal('modal-vision')">&times;</span>
+   <h2 class="modal-title">Nuestra Visión</h2>
+<p class="modal-text">
+  Ser el <strong class="green">organismo de inspección de GLP</strong> referente en la <strong class="green">región insular del Caribe colombiano</strong>, reconocido por su <strong class="green">competencia técnica</strong>, <strong class="green">transparencia</strong> y <strong class="green">compromiso con la mejora continua</strong>, garantizando un <strong class="green">servicio seguro</strong> y <strong class="green">sostenible</strong> para los habitantes y visitantes de <strong class="green">San Andrés</strong>.
+</p>
+
+    <p class="modal-text">
+      Nuestra visión es expandir nuestros servicios a nivel nacional, manteniendo una cultura organizacional basada en la 
+      <strong class="green">mejora continua</strong>, la <strong class="green">innovación</strong>, y el 
+      <strong class="green">cumplimiento de las normativas</strong> vigentes en seguridad energética.
+    </p>
+    <img src="vision.jpg" alt="Visión de SAI Ingeniería" class="modal-image">
+  </div>
+</div>
+
+
+<div id="modal-trabajo" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="closeModal('modal-trabajo')">&times;</span>
+    <h2 class="modal-title">Nuestro trabajo</h2>
+    <p class="modal-text">
+      Nos especializamos en la <strong class="green">inspección y certificación de trazados de gas GLP</strong>, garantizando que cada instalación cumpla con los más altos estándares de seguridad. 
+    </p>
+    <p class="modal-text">
+      Nuestro compromiso es brindar <strong class="green">confianza, bienestar y protección</strong> a los usuarios de <em>San Andrés</em>, promoviendo un entorno seguro y eficiente en el uso del gas.
+    </p>
+    <img src="trabajo.jpg" alt="Proceso de trabajo en SAI Ingeniería" class="modal-image">
+  </div>
+</div>
+
+
+<div id="modal-opiniones" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="closeModal('modal-opiniones')">&times;</span>
+    <h2 class="modal-title">Tipo de Trabajo</h2>
+<p class="modal-text">
+  <strong class="green">Certificaciones SAI</strong> cuenta actualmente con el alcance necesario para realizar inspecciones en trazados de gas GLP en las siguientes modalidades:
+</p>
+<ul class="modal-list">
+  <li>Inspecciones en servicio</li>
+  <li>Inspecciones en servicios comerciales</li>
+  <li>Inspecciones nuevas</li>
+  <li>Inspecciones nuevas comerciales</li>
+  <li>Inspecciones de redes comerciales</li>
+</ul>
+<p class="modal-text final-text">
+  <em>Estamos autorizados para verificar que las instalaciones cumplan con la normativa vigente, asegurando la <strong class="green">seguridad</strong>, la <strong class="green">eficiencia</strong> y el <strong class="green">cumplimiento técnico</strong> en cada tipo de inspección.</em>
+</p>
+    <img src="opiniones.jpg" alt="Tipos de trabajo realizados por Certificaciones SAI" class="modal-image">
+  </div>
+</div>
+
+
+<div id="modal-conocenos" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="closeModal('modal-conocenos')">&times;</span>
+    
+    <h2 class="modal-title">Alcance de inspecciones</h2>
+    <p class="modal-text">
+      Contamos con el alcance necesario para realizar inspecciones en diferentes modalidades, incluyendo:
+    </p>
+    <ul class="modal-list">
+      <li>Inspecciones en servicio</li>
+      <li>Inspecciones en servicios comerciales</li>
+      <li>Inspecciones nuevas</li>
+      <li>Inspecciones nuevas comerciales</li>
+      <li>Inspecciones de redes comerciales</li>
+    </ul>
+
+    <h3 class="modal-subtitle">Nuestro equipo</h3>
+    <p class="modal-text">
+      Operamos con un equipo de profesionales capacitados y tecnología adecuada para garantizar la 
+      <strong class="green">confiabilidad</strong> de nuestros dictámenes técnicos.
+    </p>
+
+    <p class="modal-text final-text">
+      <em>Nos enfocamos en proteger la vida, los bienes y el entorno, promoviendo instalaciones seguras 
+      y funcionales en todo el territorio de <strong>San Andrés y Providencia</strong>.</em>
+    </p>
+  </div>
+</div>
+
+
+
+<script>
+function openModal(id) {
+  document.getElementById(id).style.display = 'flex';
+}
+
+function closeModal(id) {
+  document.getElementById(id).style.display = 'none';
+}
+</script>
+
+<script>
+  window.addEventListener('scroll', function() {
+    const header = document.querySelector('header');
+    if (window.scrollY > 50) {
+      header.classList.add('scrolled');
+    } else {
+      header.classList.remove('scrolled');
+    }
+  });
+</script>
+
+
+<script>
+  let currentSlide = 0;
+  const slides = document.querySelectorAll('.slide');
+
+  setInterval(() => {
+    slides[currentSlide].classList.remove('active');
+    currentSlide = (currentSlide + 1) % slides.length;
+    slides[currentSlide].classList.add('active');
+  }, 4000);
+</script>
+
+<script>
+  function toggleDescripcion(event, index) {
+    event.preventDefault();
+    const items = document.querySelectorAll('.acceso-item');
+    items.forEach((item, i) => {
+      const desc = item.querySelector('.descripcion-servicio');
+      if (i === index) {
+        desc.style.display = desc.style.display === 'block' ? 'none' : 'block';
+      } else {
+        desc.style.display = 'none'; 
+      }
+    });
+  }
+</script>
+
+</body>
+</html>
